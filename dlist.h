@@ -79,8 +79,23 @@ class Dlist {
 
 template<typename T>
 bool Dlist<T> :: IsEmpty() const{
-  return first->T;
+  return first;
 }
 
+template<typename T>
+void Dlist<T> :: InsertFront(const T& o){
+  node insert = new node;
+  insert-> T = o;
+  insert->prev = NULL;
+
+  if(first){
+    insert->next = NULL;
+    first = insert;
+  }
+  else{
+    insert ->next = first;
+    first = insert;
+  }
+}
 /* this must be at the end of the file */
 #endif /* __DLIST_H__ */
