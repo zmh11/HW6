@@ -77,6 +77,10 @@ class Dlist {
  *ADD  Member function implementations here
  ***************************************/
 
+template<typename T>
+bool Dlist<T> :: IsEmpty() const{
+  return first->T;
+}
 
 /* this must be at the end of the file */
 #endif /* __DLIST_H__ */
