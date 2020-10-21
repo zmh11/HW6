@@ -83,9 +83,9 @@ bool Dlist<T> :: IsEmpty() const{
 }
 
 template<typename T>
-void Dlist<T> :: InsertFront(const T& o){
-  node insert = new node;
-  insert-> T = o;
+void Dlist<T> :: InsertFront(const T& k){
+  node* insert = new node;
+  insert-> o = k;
   insert->prev = NULL;
 
   if(!first){
@@ -101,9 +101,9 @@ void Dlist<T> :: InsertFront(const T& o){
 }
 
 template<typename T>
-void Dlist<T> :: InsertBack( const T& o){
-  node insert = new node;
-  insert ->T = o;
+void Dlist<T> :: InsertBack( const T& k){
+  node* insert = new node;
+  insert ->o = k;
   insert->next = NULL;
   if(!last){
   first = insert;
@@ -118,8 +118,20 @@ void Dlist<T> :: InsertBack( const T& o){
 
 template<typename T>
 T Dlist<T> :: RemoveFront(){
-  
+  if( IsEmpty() ){
+    std::cerr << "Error: list is empty\n";
+     assert(0);
+  }
+  node* temp = first;
+  first = first-> next;
+  return temp -> o;
 }
 
+
+
+template<typename T>
+Dlist<T> :: Dlist(){};
+template<typename T>
+Dlist<T> :: ~Dlist(){};
 /* this must be at the end of the file */
 #endif /* __DLIST_H__ */
