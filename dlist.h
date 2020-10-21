@@ -124,8 +124,23 @@ T Dlist<T> :: RemoveFront(){
     assert(0);
   }
   node* temp = first;
+  T val = temp -> o ;
   first = first-> next;
-  return temp -> o;
+  delete temp;
+  return val;
+}
+
+template<typename T>
+T Dlist<T> :: RemoveBack(){
+  if( IsEmpty() ){
+    std::cerr << "Error: list is empty\n";
+    assert(0);
+  }
+  node* temp = last;
+  T val = temp -> o;
+  last = last->prev;
+  delete temp;
+  return val;
 }
 
 
