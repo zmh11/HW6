@@ -124,24 +124,33 @@ void Dlist<T> :: InsertBack( const T& k){
 template<typename T>
 T Dlist<T> :: RemoveFront(){
 
+  if( IsEmpty() ){
+    std::cerr <<"List is empty \n";
+    assert(false);
+  }
+  else{
   node* temp = first;
   T val = temp -> o ;
   first = first-> next;
   delete temp;
   return val;
+  }
 }
 
 template<typename T>
 T Dlist<T> :: RemoveBack(){
+ 
   if( IsEmpty() ){
-    std::cerr << "Error: list is empty\n";
-    assert(0);
+    std::cerr <<"List is empty \n";
+    assert(false);
   }
-  node* temp = last;
-  T val = temp -> o;
-  last = last->prev;
-  delete temp;
-  return val;
+  else{
+    node* temp = last;
+    T val = temp->o;
+    last = last->prev;
+    delete temp;
+    return val;
+  }
 }
 
 template<typename T>
