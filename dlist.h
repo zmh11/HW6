@@ -120,7 +120,7 @@ void Dlist<T> :: InsertBack( const T& k){
     last = insert;
   }
 }
-//fix remove  !!!!!!!!!!!!!!!!!!!!!!
+
 template<typename T>
 T Dlist<T> :: RemoveFront(){
 
