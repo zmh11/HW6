@@ -9,20 +9,28 @@ int main() {
   list.InsertFront(3);
   list.InsertBack(2);
   list.InsertBack(8);
-  list.InsertBack(8);
+  list.InsertBack(9);
   
   //std::cout<< list.IsEmpty();
   int k;
   
+   k = list.RemoveBack();
+  std::cout<<k<<" ";
+     
+     k = list.RemoveBack();
+  std::cout<<k<<" ";
+
   k = list.RemoveFront();
   std::cout<<k<<" ";
-  k = list.RemoveFront();
+
+  k = list.RemoveBack();
   std::cout<<k<<" ";
-   k = list.RemoveFront();
+
+   k = list.RemoveBack();
   std::cout<<k<<" ";
-     k = list.RemoveFront();
+
+ // k = list.RemoveBack();
   std::cout<<k<<" ";
-  k = list.RemoveFront();
    std::cout<< list.IsEmpty();
    /*
   k = list.RemoveBack();

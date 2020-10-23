@@ -129,10 +129,14 @@ T Dlist<T> :: RemoveFront(){
     assert(false);
   }
   else{
-  node* temp = first;
+  node* temp = new node;
+  temp = first;
   T val = temp -> o ;
   first = first-> next;
-  delete temp;
+  // 1 value 
+  if(first == NULL)
+    last = NULL;
+  free(temp);
   return val;
   }
 }
@@ -145,10 +149,16 @@ T Dlist<T> :: RemoveBack(){
     assert(false);
   }
   else{
-    node* temp = last;
+ 
+    node* temp = new node;
+    temp = last;
     T val = temp->o;
     last = last->prev;
-    delete temp;
+    //1 value
+    if (last == NULL)
+      first = NULL;
+    
+    free( temp);
     return val;
   }
 }
