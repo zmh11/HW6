@@ -144,15 +144,32 @@ T Dlist<T> :: RemoveBack(){
   return val;
 }
 
-
+template<typename T>
+void Dlist<T> :: MakeEmpty(){
+  first = NULL;
+  last = NULL;
+}
 
 template<typename T>
 Dlist<T> :: Dlist(){
-  first = NULL;
-  last = NULL;
-};
+   MakeEmpty();
+}
 
 template<typename T>
-Dlist<T> :: ~Dlist(){};
+void Dlist<T> :: RemoveAll(){
+  int temp;
+  while( !IsEmpty() ){
+    temp = RemoveFront();
+  }
+}
+
+template<typename T>
+Dlist<T> :: ~Dlist(){
+    RemoveAll();
+};
+
+
+
+
 /* this must be at the end of the file */
 #endif /* __DLIST_H__ */
