@@ -17,23 +17,23 @@ class Dlist {
 
   // Operational methods
 
-  bool isEmpty() const;
+  bool IsEmpty() const;
   // EFFECTS: returns true if list is empty, false otherwise
 
-  void insertFront(const T &o);
+  void InsertFront(const T &o);
   // MODIFIES this
   // EFFECTS inserts o at the front of the list
     
-  void insertBack(const T &o);
+  void InsertBack(const T &o);
   // MODIFIES this
   // EFFECTS inserts o at the back of the list
 
-  T removeFront();
+  T RemoveFront();
   // MODIFIES this
   // EFFECTS removes and returns first object from non-empty list
   //         throws an instance of emptyList if empty
 
-  T removeBack();
+  T RemoveBack();
   // MODIFIES this
   // EFFECTS removes and returns last object from non-empty list
   //         throws an instance of emptyList if empty
@@ -81,18 +81,18 @@ class Dlist {
 
 
 template<typename T>
-bool Dlist<T> :: isEmpty() const{
+bool Dlist<T> :: IsEmpty() const{
   return (first == NULL);
 }
 
 template<typename T>
-void Dlist<T> :: insertFront(const T& k){
+void Dlist<T> :: InsertFront(const T& k){
   node* insert = new node;
   insert-> o = k;
   insert->prev = NULL;
   insert -> next = NULL;
 
-  if(isEmpty()){
+  if(IsEmpty()){
     first = insert;
     last = insert;
   }
@@ -104,13 +104,13 @@ void Dlist<T> :: insertFront(const T& k){
 }
 
 template<typename T>
-void Dlist<T> :: insertBack( const T& k){
+void Dlist<T> :: InsertBack( const T& k){
   node* insert = new node;
   insert ->o = k;
   insert->next = NULL;
   insert->prev = NULL;
 
-  if(isEmpty()){
+  if(IsEmpty()){
   first = insert;
   last = insert;
   }
@@ -122,7 +122,7 @@ void Dlist<T> :: insertBack( const T& k){
 }
 
 template<typename T>
-T Dlist<T> :: removeFront(){
+T Dlist<T> :: RemoveFront(){
 
   node* temp = first;
   T val = temp -> o ;
@@ -132,8 +132,8 @@ T Dlist<T> :: removeFront(){
 }
 
 template<typename T>
-T Dlist<T> :: removeBack(){
-  if( isEmpty() ){
+T Dlist<T> :: RemoveBack(){
+  if( IsEmpty() ){
     std::cerr << "Error: list is empty\n";
     assert(0);
   }
@@ -158,9 +158,10 @@ Dlist<T> :: Dlist(){
 template<typename T>
 void Dlist<T> :: RemoveAll(){
   int temp;
-  while( !isEmpty() ){
+  while( !IsEmpty() ){
     temp = RemoveFront();
   }
+
 }
 
 template<typename T>
