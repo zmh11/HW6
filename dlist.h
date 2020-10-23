@@ -77,9 +77,12 @@ class Dlist {
  *ADD  Member function implementations here
  ***************************************/
 
+
+
+
 template<typename T>
 bool Dlist<T> :: IsEmpty() const{
-  return (!first);
+  return (first == NULL);
 }
 
 template<typename T>
@@ -87,9 +90,9 @@ void Dlist<T> :: InsertFront(const T& k){
   node* insert = new node;
   insert-> o = k;
   insert->prev = NULL;
+  insert -> next = NULL;
 
   if(IsEmpty()){
-    insert->next = NULL;
     first = insert;
     last = insert;
   }
@@ -105,8 +108,9 @@ void Dlist<T> :: InsertBack( const T& k){
   node* insert = new node;
   insert ->o = k;
   insert->next = NULL;
-  if(IsEmpty()){
   insert->prev = NULL;
+
+  if(IsEmpty()){
   first = insert;
   last = insert;
   }
@@ -116,13 +120,10 @@ void Dlist<T> :: InsertBack( const T& k){
     last = insert;
   }
 }
-
+//fix remove  !!!!!!!!!!!!!!!!!!!!!!
 template<typename T>
 T Dlist<T> :: RemoveFront(){
-  if( IsEmpty() ){
-    std::cerr << "Error: list is empty\n";
-    assert(0);
-  }
+
   node* temp = first;
   T val = temp -> o ;
   first = first-> next;
@@ -146,7 +147,11 @@ T Dlist<T> :: RemoveBack(){
 
 
 template<typename T>
-Dlist<T> :: Dlist(){};
+Dlist<T> :: Dlist(){
+  first = NULL;
+  last = NULL;
+};
+
 template<typename T>
 Dlist<T> :: ~Dlist(){};
 /* this must be at the end of the file */

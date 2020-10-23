@@ -3,15 +3,22 @@
 int main() {
   std::cout << "Hello World!\n";
   Dlist <int> list;
-  //list.RemoveFront();
-  list.InsertBack(5);
-  list.InsertFront(6);
-  //list.InsertBack(9);
+
+  std::cout<< list.IsEmpty();
+  
+  //list.InsertFront(4);
+  list.InsertFront(3);
+  list.InsertBack(2);
+  list.InsertBack(8);
+  
+  //std::cout<< list.IsEmpty();
   int k;
- // k = list.RemoveFront();
-  std::cout << k<<" ";
-   k = list.RemoveBack();
+  k = list.RemoveFront();
   std::cout<<k<<" ";
-  //k = list.RemoveFront();
+  k = list.RemoveFront();
+  std::cout<<k<<" ";
+    k = list.RemoveBack();
+  std::cout<<k<<" ";
    std::cout<< list.IsEmpty();
+      // k = list.RemoveFront();
 }
