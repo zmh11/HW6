@@ -28,7 +28,7 @@ int main() {
    k = list.RemoveBack();
   std::cout<<k<<" ";
 
- // k = list.RemoveBack();
+  //k = list.RemoveBack();
   std::cout<<" "<< list.IsEmpty();
 
 }
