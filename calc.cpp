@@ -82,17 +82,15 @@ void calc (){
         temp[k] = o1;
         std::cout << o1 << " ";
       }
-
       std::cout << std::endl;
       for(int k = 0; k <size; k++){ // place values back 
         calc.InsertBack(temp[k]);
       }
-    }else if (size < 2 && input != "q"){
+    }else if (size < 2 && input != "q"){ // not enough operands
       std::cout << "Not enough operands\n";
-    }else if(input != "q") {
+    }else if(input != "q") { // bad input
       std::cout << "Bad input\n"; 
     }
-    
   }
 
 }

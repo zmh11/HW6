@@ -32,7 +32,7 @@ int main() {
   q->name = "Andrew DeOrio";
   q->uniqname = "cool name";
   q->job = FACULTY;
-  catsweb.InsertFront( q );
+  catsweb.InsertBack( q );
 
 
   // do something with "catsweb"
