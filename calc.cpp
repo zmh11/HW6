@@ -37,13 +37,26 @@ void calc (){
       o2 = calc.RemoveFront();
       calc.InsertFront( (o1 - o2) );
       size --;
-    }else if ( (input == "*") && (size>=2) ){
+    }else if ( (input == "*") && (size>=2) ){ // mutipiply
       o1 = calc.RemoveFront();
       o2 = calc.RemoveFront();
       calc.InsertFront( (o1 * o2) );
       size --;
+    }else if ( (input == "/") && (size>=2) ){ // mutipiply
+      o1 = calc.RemoveFront();
+      o2 = calc.RemoveFront();
+      if(o1 != 0){
+        calc.InsertFront( (o2 / o1) );
+        size --;
+      }
+      else{
+        std::cout << "Divide by zero\n";
+        calc.InsertFront(o2);
+        calc.InsertFront(o1);
+      }
     }
   
+
   std::cout<<std::endl;
   }
 
