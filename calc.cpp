@@ -35,14 +35,14 @@ void calc (){
     } else if( (input == "-") && (size >= 2) ){ // subtract
       o1 = calc.RemoveFront();
       o2 = calc.RemoveFront();
-      calc.InsertFront( (o1 - o2) );
+      calc.InsertFront( (o2 - o1) );
       size --;
     }else if ( (input == "*") && (size>=2) ){ // mutipiply
       o1 = calc.RemoveFront();
       o2 = calc.RemoveFront();
       calc.InsertFront( (o1 * o2) );
       size --;
-    }else if ( (input == "/") && (size>=2) ){ // mutipiply
+    }else if ( (input == "/") && (size>=2) ){ // divide
       o1 = calc.RemoveFront();
       o2 = calc.RemoveFront();
       if(o1 != 0){
@@ -54,18 +54,40 @@ void calc (){
         calc.InsertFront(o2);
         calc.InsertFront(o1);
       }
+    }else if ( (input == "n") && (size>=1) ){ // negate
+      o1 = calc.RemoveFront();
+      calc.InsertFront( (o1 * (-1)) );
+    }else if ( (input == "d") && (size>=1) ){ // duplicate
+      o1 = calc.RemoveFront();
+      calc.InsertFront( o1 );
+      calc.InsertFront( o1 );
+      size++;
+    }else if ( (input == "r") && (size>=2) ){ // reverse
+      o1 = calc.RemoveFront();
+      o2 = calc.RemoveFront();
+      calc.InsertFront(o2);
+      calc.InsertFront(o1);
+    }else if ( (input == "p") && (size>=1) ){ // print
+      o1 = calc.RemoveFront();
+      std::cout << o1;
+      calc.InsertFront(o1);
+      std::cout<<std::endl;
+    }else if( input == "c"){ // clear
+      while (!calc.IsEmpty()) 
+        o1 = calc.RemoveFront();
+    }else if( input == "a" ){
+      double temp[size-1];
+      for(int k = 0; k <size; k++){
+        o1 = calc.RemoveFront();
+        temp[k] = o1;
+        std::cout << o1 << " ";
+      }
+
+      std::cout << std::endl;
+      for(int k = 0; k <size; k++){ // place values back 
+        calc.InsertBack(temp[k]);
+      }
     }
-  
-
-  std::cout<<std::endl;
-  }
-
-
-
-    while (!calc.IsEmpty())
-  {
-    o1 = calc.RemoveFront();
-    std::cout<< o1 <<" ";
   }
 
 }
