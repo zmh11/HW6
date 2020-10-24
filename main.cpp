@@ -11,7 +11,6 @@ int main() {
   list.InsertBack(8);
   list.InsertBack(9);
   
-  //std::cout<< list.IsEmpty();
   int k;
   
    k = list.RemoveBack();
@@ -30,17 +29,6 @@ int main() {
   std::cout<<k<<" ";
 
  // k = list.RemoveBack();
-  std::cout<<k<<" ";
-   std::cout<< list.IsEmpty();
-   /*
-  k = list.RemoveBack();
-  std::cout<<k<<" ";
-  k = list.RemoveBack();
-  std::cout<<k<<" ";
-   k = list.RemoveBack();
-  std::cout<<k<<" ";
-     k = list.RemoveBack();
-  std::cout<<k<<" ";
-   std::cout<< list.IsEmpty();
-  */
+  std::cout<<" "<< list.IsEmpty();
+
 }

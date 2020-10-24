@@ -77,9 +77,6 @@ class Dlist {
  *ADD  Member function implementations here
  ***************************************/
 
-
-
-
 template<typename T>
 bool Dlist<T> :: IsEmpty() const{
   return (first == NULL);
