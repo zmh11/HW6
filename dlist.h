@@ -133,6 +133,7 @@ T Dlist<T> :: RemoveFront(){
   // 1 value 
   if(first == NULL)
     last = NULL;
+  //delete temp;
   free(temp);
   return val;
   }
@@ -173,7 +174,7 @@ Dlist<T> :: Dlist(){
 
 template<typename T>
 void Dlist<T> :: RemoveAll(){
-  int temp;
+  T temp;
   while( !IsEmpty() ){
     temp = RemoveFront();
   }

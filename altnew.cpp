@@ -14,7 +14,7 @@ struct alloc_frame {
 };
     
 
-void *operator new(size_t n)
+void *operator new(size_t n) noexcept
 {
     void *vp = malloc(n + sizeof(alloc_frame));
     alloc_frame *p = static_cast<alloc_frame *>(vp);
@@ -28,7 +28,7 @@ void *operator new(size_t n)
     return p->result;
 }
 
-void operator delete(void *p)
+void operator delete(void *p) noexcept
 {
     // Null check
     if (!p) return;

@@ -22,6 +22,19 @@ int main() {
   p->job = FACULTY;
   catsweb.InsertFront( p );
 
+  Record* f = new Record;
+  f->name = "Andrew DeOrio";
+  f->uniqname = "testing";
+  f->job = FACULTY;
+  catsweb.InsertFront( f );
+
+  Record* q = new Record;
+  q->name = "Andrew DeOrio";
+  q->uniqname = "cool name";
+  q->job = FACULTY;
+  catsweb.InsertFront( q );
+
+
   // do something with "catsweb"
 
   // don't forget to delete objects on the heap

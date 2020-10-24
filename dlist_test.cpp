@@ -1,41 +1,48 @@
 #include <iostream>
+#include <string>
 #include "dlist.h"
-int main(){
 
-  Dlist <int> list;
-  int temp;
-  // test list is empty 
-  std::cout << "expetded output 1 : ";
-  std::cout << list.IsEmpty() << std::endl << std::endl;
+using namespace std;
 
-  // test add front remove front
-  list.InsertFront(2);
-  list.InsertFront(1);
-  std::cout << "expected output 1 2 : ";
-  temp = list.RemoveFront();
-  std::cout << temp << " ";
-  temp =list.RemoveFront();
-  std::cout << temp << " " << std::endl << std::endl;
+enum Job {STUDENT, FACULTY, STAFF};
 
-  //test add back and remove back 
-  list.InsertBack(2);
-  list.InsertBack(1);
-  std::cout << "expected output 1 2 : ";
-  temp = list.RemoveBack();
-  std::cout << temp << " ";
-  temp = list.RemoveBack();
-  std::cout << temp << " " << std::endl << std::endl;
+struct Record {
+  string name;
+  string uniqname;
+  Job job;
+};
 
-  // test empty with values 
-  list.InsertBack(2);
-  list.InsertBack(1);
-  list.InsertFront(2);
-  list.InsertFront(1);
-  std::cout << "expected output 0 : ";
-  std::cout << list.IsEmpty() << " ";
-  
+int main() {
 
-  
+  Dlist<Record*> catsweb; //records are big, so store pointer
+
+  Record* p = new Record;
+  p->name = "Andrew DeOrio";
+  p->uniqname = "awdeorio";
+  p->job = FACULTY;
+  catsweb.InsertFront( p );
+
+  Record* f = new Record;
+  f->name = "Andrew DeOrio";
+  f->uniqname = "testing";
+  f->job = FACULTY;
+  catsweb.InsertFront( f );
+
+  Record* q = new Record;
+  q->name = "Andrew DeOrio";
+  q->uniqname = "cool name";
+  q->job = FACULTY;
+  catsweb.InsertFront( q );
 
 
+  // do something with "catsweb"
+
+  // don't forget to delete objects on the heap
+  while ( !catsweb.IsEmpty() ) {
+    Record *r = catsweb.RemoveFront();
+    cout << r->uniqname << endl;
+    delete r;
+  }
+
+  return 0;
 }
