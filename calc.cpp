@@ -86,7 +86,9 @@ void calc (){
       for(int k = 0; k <size; k++){ // place values back 
         calc.InsertBack(temp[k]);
       }
-    }else if (size < 2 && input != "q"){ // not enough operands
+    }else if ( input == "+" || input == "-" || input == "*" ||input == "/" ||
+               input == "n" || input == "d" || input == "r" ||input == "p" ||
+               input == "c" || input == "a" ){ /// not enough operands
       std::cout << "Not enough operands\n";
     }else if(input != "q") { // bad input
       std::cout << "Bad input\n"; 
