@@ -1,4 +1,4 @@
 
 int main(){
-  calc();
+  // call method in call cpp?????
 }
