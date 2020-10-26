@@ -186,6 +186,13 @@ void Dlist<T> :: RemoveAll(){
 }
 
 template<typename T>
+Dlist<T>& Dlist<T>::operator=(const Dlist &e){
+  RemoveAll();
+  CopyAll(e);
+  return *this;
+}
+
+template<typename T>
 Dlist<T> :: ~Dlist(){
     RemoveAll();
 };
