@@ -188,7 +188,7 @@ void Dlist<T> :: RemoveAll(){
 template<typename T>
 void Dlist<T>::CopyAll(const Dlist& l ){
   RemoveAll();
-  node* temp = l->first;
+  node* temp = first;
   while (!temp){
     T value;
     value  = temp->o;
