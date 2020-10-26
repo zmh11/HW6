@@ -196,6 +196,7 @@ void Dlist<T>::CopyAll(const Dlist& l ){
     temp = temp->next; 
   }
 }
+
 template<typename T>
 Dlist<T>::Dlist(const Dlist &l){
   CopyAll(l);
