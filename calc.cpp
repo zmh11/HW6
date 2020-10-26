@@ -96,7 +96,7 @@ void calc (){
   }
 
 }
-int main{
+int main(){
   calc();
   return 0;
 }
