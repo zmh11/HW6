@@ -122,8 +122,10 @@ template<typename T>
 T Dlist<T> :: RemoveFront(){
 
   if( IsEmpty() ){
-    std::cerr <<"List is empty \n";
-    assert(false);
+    //std::cerr <<"List is empty \n";
+    //assert(false);
+    Dlist* e = new Dlist;
+    throw e;
   }
   else{
   node* temp = new node;
@@ -143,8 +145,10 @@ template<typename T>
 T Dlist<T> :: RemoveBack(){
  
   if( IsEmpty() ){
-    std::cerr <<"List is empty \n";
-    assert(false);
+    //std::cerr <<"List is empty \n";
+    //assert(false);
+    Dlist* e = new Dlist;
+    throw e;
   }
   else{
  
