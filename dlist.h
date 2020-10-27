@@ -191,10 +191,10 @@ template<typename T>
 void Dlist<T>::CopyAll(const Dlist& l ){
   RemoveAll();
   node* temp = l.first;
-  while (!temp){
+  while (temp){
     T value;
     value  = temp->o;
-    InsertBack(value);
+    this->InsertBack(value);
     temp = temp->next; 
   }
 }
