@@ -124,7 +124,8 @@ T Dlist<T> :: RemoveFront(){
   if( IsEmpty() ){
     //std::cerr <<"List is empty \n";
     //assert(false);
-    Dlist* e = new Dlist;
+    //Dlist* e = new Dlist;
+    emptyList e;
     throw e;
   }
   else{
@@ -147,7 +148,8 @@ T Dlist<T> :: RemoveBack(){
   if( IsEmpty() ){
     //std::cerr <<"List is empty \n";
     //assert(false);
-    Dlist* e = new Dlist;
+    //Dlist* e = new Dlist;
+    emptyList e;
     throw e;
   }
   else{
