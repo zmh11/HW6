@@ -39,21 +39,19 @@ int main() {
   cout <<test.IsEmpty() <<" " <<catsweb.IsEmpty();
   // do something with "catsweb"
   
-/*while ( !test.IsEmpty() ) {
+while ( !test.IsEmpty() ) {
     Record *a =test.RemoveBack();
     cout << a->uniqname << endl;
     delete a;
   }
-*/
+cout <<test.IsEmpty() <<" " <<catsweb.IsEmpty();
   // don't forget to delete objects on the heap
-  while ( !catsweb.IsEmpty() ) {
+    while ( !catsweb.IsEmpty() ) {
     Record *r = catsweb.RemoveFront();
-    //Record *a =test.RemoveBack();
     cout << r->uniqname << endl;
-    //cout << a->uniqname << endl;
-    //delete a;
-    delete r;
-  }
+    //delete r;
+ }
+
 
   return 0;
 }
