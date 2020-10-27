@@ -34,7 +34,9 @@ int main() {
   q->job = FACULTY;
   catsweb.InsertBack( q );
 
-
+  Dlist<Record*> test;
+  test = catsweb;
+  
   // do something with "catsweb"
 
   // don't forget to delete objects on the heap
