@@ -196,8 +196,8 @@ void Dlist<T>::CopyAll(const Dlist& l ){
   temp =l.first;
 
   while (temp){
-    T value = temp->o;
-    InsertBack(value); // thing->o this this too this is right alex said 
+   // T value = temp->o;    if alex thing dont work 
+    InsertBack(temp->o); // thing->o this this too this is right alex said 
     temp = temp->next; 
   }
 
