@@ -129,10 +129,10 @@ T Dlist<T> :: RemoveFront(){
     throw e;
   }
   else{
-  node* temp = new node;
-  temp = first;
+  node* temp = first;
+ // temp = first;
   T val = temp -> o ;
-  first = first-> next;
+  first = temp->next; //first = first-> next; // try first = temp->next
   // 1 value 
   if(first == nullptr)
     last = nullptr;
@@ -154,7 +154,7 @@ T Dlist<T> :: RemoveBack(){
     node* temp = new node;
     temp = last;
     T val = temp->o;
-    last = last->prev;
+    last = temp->prev;  // last = last->prev;
     //1 value
     if (last == nullptr)
       first = nullptr;
@@ -177,9 +177,12 @@ Dlist<T> :: Dlist(){
 
 template<typename T>
 void Dlist<T> :: RemoveAll(){
-  T temp;
+   T temp; // try node ptr 
   while( !IsEmpty() ){
-    temp = RemoveFront();
+    node* thing = first; // try thins
+    first = thing->next; // try thins
+    delete thing; // try thins
+   // temp = RemoveFront();
   }
   MakeEmpty();
 
@@ -193,7 +196,7 @@ void Dlist<T>::CopyAll(const Dlist& l ){
 
   while (temp){
     T value = temp->o;
-    InsertBack(value);
+    InsertBack(value); // thing->o this this too this is right alex said 
     temp = temp->next; 
   }
 
