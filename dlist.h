@@ -190,17 +190,17 @@ void Dlist<T> :: RemoveAll(){
 }
 
 template<typename T>
-void Dlist<T>::CopyAll(const Dlist& l ){
+void Dlist<T>::CopyAll(const Dlist& l ){ 
   RemoveAll();
   node* temp = new node;
   temp =l.first;
-
+  //node* temp = l.first;
   while (temp){
    // T value = temp->o;    if alex thing dont work 
     InsertBack(temp->o); // thing->o this this too this is right alex said 
-    temp = temp->next; 
+    temp = temp->next;
+    
   }
-
 }
 
 template<typename T>
@@ -212,10 +212,10 @@ Dlist<T>::Dlist(const Dlist &l){
 
 template<typename T>
 Dlist<T>& Dlist<T>::operator=(const Dlist &l){
-  if(this != &l)
-    return *this;
-  CopyAll(l);
-
+  if(this != &l) // was != not working 
+    CopyAll(l);
+    //return *this;
+  //CopyAll(l);
   return *this;
 }
 

@@ -35,17 +35,19 @@ int main() {
   catsweb.InsertBack( q );
 
   Dlist<Record*> test;
-  test = catsweb;
-  cout <<test.IsEmpty() <<" " <<catsweb.IsEmpty();
+
+  cout <<test.IsEmpty() <<" cats" <<catsweb.IsEmpty() << endl;
   // do something with "catsweb"
-  
+  test = catsweb;
+
+  cout <<test.IsEmpty() <<" cats" <<catsweb.IsEmpty()<<endl;
+
 while ( !test.IsEmpty() ) {
     Record *a =test.RemoveBack();
     cout << a->uniqname << endl;
     delete a;
   }
-cout <<test.IsEmpty() <<" " <<catsweb.IsEmpty();
-  // don't forget to delete objects on the heap
+
 
     while ( !catsweb.IsEmpty() ) {
       
