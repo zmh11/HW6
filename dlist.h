@@ -137,7 +137,7 @@ T Dlist<T> :: RemoveFront(){
   if(first == nullptr)
     last = nullptr;
   //delete temp;
-  free(temp);
+  delete temp;
   return val;
   }
 }
@@ -146,9 +146,6 @@ template<typename T>
 T Dlist<T> :: RemoveBack(){
  
   if( IsEmpty() ){
-    //std::cerr <<"List is empty \n";
-    //assert(false);
-    //Dlist* e = new Dlist;
     emptyList e;
     throw e;
   }
@@ -162,7 +159,7 @@ T Dlist<T> :: RemoveBack(){
     if (last == nullptr)
       first = nullptr;
     
-    free( temp);
+    delete temp;
     return val;
   }
 }
@@ -204,12 +201,15 @@ void Dlist<T>::CopyAll(const Dlist& l ){
 
 template<typename T>
 Dlist<T>::Dlist(const Dlist &l){
+  MakeEmpty();
   CopyAll(l);
 }
 
 
 template<typename T>
 Dlist<T>& Dlist<T>::operator=(const Dlist &l){
+  if(this != &l)
+    return *this;
   CopyAll(l);
 
   return *this;
