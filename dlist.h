@@ -179,10 +179,11 @@ template<typename T>
 void Dlist<T> :: RemoveAll(){
    T temp; // try node ptr 
   while( !IsEmpty() ){
-    node* thing = first; // try thins
-    first = thing->next; // try thins
-    delete thing; // try thins
-   // temp = RemoveFront();
+   // node* thing = first; // try thins
+    //first = thing->next; // try thins
+    //delete thing; // try thins
+   RemoveFront();
+   // temp = RemoveFront(); /// not the try this
   }
   MakeEmpty();
 
