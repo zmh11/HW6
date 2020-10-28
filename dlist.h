@@ -79,15 +79,15 @@ class Dlist {
 
 template<typename T>
 bool Dlist<T> :: IsEmpty() const{
-  return (first == NULL);
+  return (first == nullptr);
 }
 
 template<typename T>
 void Dlist<T> :: InsertFront(const T& k){
   node* insert = new node;
   insert-> o = k;
-  insert->prev = NULL;
-  insert -> next = NULL;
+  insert->prev = nullptr;
+  insert -> next = nullptr;
 
   if(IsEmpty()){
     first = insert;
@@ -104,8 +104,8 @@ template<typename T>
 void Dlist<T> :: InsertBack( const T& k){
   node* insert = new node;
   insert ->o = k;
-  insert->next = NULL;
-  insert->prev = NULL;
+  insert->next = nullptr;
+  insert->prev = nullptr;
 
   if(IsEmpty()){
   first = insert;
@@ -134,8 +134,8 @@ T Dlist<T> :: RemoveFront(){
   T val = temp -> o ;
   first = first-> next;
   // 1 value 
-  if(first == NULL)
-    last = NULL;
+  if(first == nullptr)
+    last = nullptr;
   //delete temp;
   free(temp);
   return val;
@@ -159,8 +159,8 @@ T Dlist<T> :: RemoveBack(){
     T val = temp->o;
     last = last->prev;
     //1 value
-    if (last == NULL)
-      first = NULL;
+    if (last == nullptr)
+      first = nullptr;
     
     free( temp);
     return val;
@@ -169,8 +169,8 @@ T Dlist<T> :: RemoveBack(){
 
 template<typename T>
 void Dlist<T> :: MakeEmpty(){
-  first = NULL;
-  last = NULL;
+  first = nullptr;
+  last = nullptr;
 }
 
 template<typename T>
@@ -184,6 +184,7 @@ void Dlist<T> :: RemoveAll(){
   while( !IsEmpty() ){
     temp = RemoveFront();
   }
+  MakeEmpty();
 
 }
 
@@ -198,6 +199,7 @@ void Dlist<T>::CopyAll(const Dlist& l ){
     InsertBack(value);
     temp = temp->next; 
   }
+
 }
 
 template<typename T>
@@ -208,8 +210,8 @@ Dlist<T>::Dlist(const Dlist &l){
 
 template<typename T>
 Dlist<T>& Dlist<T>::operator=(const Dlist &l){
-  RemoveAll();
   CopyAll(l);
+
   return *this;
 }
 

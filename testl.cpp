@@ -46,11 +46,14 @@ while ( !test.IsEmpty() ) {
   }
 cout <<test.IsEmpty() <<" " <<catsweb.IsEmpty();
   // don't forget to delete objects on the heap
+
     while ( !catsweb.IsEmpty() ) {
+      
     Record *r = catsweb.RemoveFront();
     cout << r->uniqname << endl;
-    //delete r;
+    delete r;
  }
+ 
 
 
   return 0;
