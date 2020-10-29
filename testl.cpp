@@ -39,23 +39,28 @@ int main() {
   cout <<test.IsEmpty() <<" cats" <<catsweb.IsEmpty() << endl;
   // do something with "catsweb"
   test = catsweb;
-
-  cout <<test.IsEmpty() <<" cats" <<catsweb.IsEmpty()<<endl;
-
+cout<<endl;
 while ( !test.IsEmpty() ) {
     Record *a =test.RemoveBack();
-    cout << a->uniqname << endl;
-    delete a;
+    cout << a->uniqname <<" "<<a<< endl;
+    //delete a;
   }
+ 
+
+cout <<test.IsEmpty() <<" cats" <<catsweb.IsEmpty()<<endl;  // copy is fucking up fix it !!!!! its not a deep copy!!!!!
+  Record* w = new Record;
+  w->name = "Andrew DeOrio";
+  w->uniqname = "lol";
+  w->job = FACULTY;
+  catsweb.InsertBack( w );
 
 
     while ( !catsweb.IsEmpty() ) {
       
-    Record *r = catsweb.RemoveFront();
-    cout << r->uniqname << endl;
-    delete r;
+    Record *r = catsweb.RemoveBack();
+    cout << r->uniqname <<" "<<r << endl;
+  delete r;
  }
- 
 
 
   return 0;

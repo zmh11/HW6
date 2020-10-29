@@ -193,11 +193,11 @@ template<typename T>
 void Dlist<T>::CopyAll(const Dlist& l ){ 
   RemoveAll();
   node* temp = new node;
-  temp =l.first;
+  temp =l.first;                        ////// make new node in while loop duhhh 
   //node* temp = l.first;
   while (temp){
-   // T value = temp->o;    if alex thing dont work 
-    InsertBack(temp->o); // thing->o this this too this is right alex said 
+    //T value = temp->o;    if alex thing dont work 
+    InsertBack(temp->o); // thing->o this this too this is right alex said
     temp = temp->next;
     
   }
@@ -205,8 +205,9 @@ void Dlist<T>::CopyAll(const Dlist& l ){
 
 template<typename T>
 Dlist<T>::Dlist(const Dlist &l){
-  MakeEmpty();
+  //MakeEmpty();
   CopyAll(l);
+  //this = l;
 }
 
 
