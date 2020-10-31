@@ -105,6 +105,13 @@ void sim(){
     }
     
   }
+  while(time_of_call!=0)
+  {
+    std::cout << tick << tick_num << std::endl; 
+    time_of_call--;
+    tick_num++;
+  }
+
 std::cout << tick << tick_num << std::endl;  
 
 
