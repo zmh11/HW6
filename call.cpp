@@ -55,9 +55,6 @@ void sim(){
   bool can_take_call=true;
   int time_of_call;
 
-  int calls_left = number_of_calls;
-  int callTaken =number_of_calls;
-  bool newcall = true;
 
  while (!calls.IsEmpty()){
     std::cout << tick << tick_num << std::endl;
@@ -76,7 +73,6 @@ void sim(){
     
     if(!call_made.IsEmpty())  // selecting caller
       priority = call_made.RemoveFront();
-   //else priority = nullptr;//                               chanfe
   
     
     while(!call_made.IsEmpty()){  // still select caller 
@@ -94,7 +90,6 @@ void sim(){
       std::cout<<answer << priority->name<< std::endl;
       time_of_call = priority->duration; 
       prev = priority;
-     //std::cout<<"prev =" << prev->name <<": " << priority->name << std::endl;
     }
     else if(prev != priority){
        calls.InsertFront(priority);
@@ -106,8 +101,7 @@ void sim(){
       caller *c=call_not_made.RemoveFront();
       calls.InsertBack(c);
     }
-    
-     //std::cout<<time_of_call<< " time left on call" <<std::endl;
+
     tick_num++;
     time_of_call--;
     if(time_of_call>0){
