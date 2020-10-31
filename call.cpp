@@ -49,9 +49,15 @@ void sim(){
   caller* user;
   caller* priority;
   caller* temp;
+
+  caller* prev = nullptr;
+
   bool can_take_call=true;
   int time_of_call;
 
+  int calls_left = number_of_calls;
+  int callTaken =number_of_calls;
+  bool newcall = true;
 
  while (!calls.IsEmpty()){
     std::cout << tick << tick_num << std::endl;
@@ -67,9 +73,13 @@ void sim(){
         call_not_made.InsertBack(c);
       }
     }
-    if(!call_made.IsEmpty())
-    priority = call_made.RemoveFront();// select caller 
-    while(!call_made.IsEmpty()){
+    
+    if(!call_made.IsEmpty())  // selecting caller
+      priority = call_made.RemoveFront();
+   //else priority = nullptr;//                               chanfe
+  
+    
+    while(!call_made.IsEmpty()){  // still select caller 
       user = call_made.RemoveFront();
       if(priority->caller_compare < user->caller_compare){
         temp = priority;
@@ -78,13 +88,18 @@ void sim(){
       }
       calls.InsertFront(user);
     }
+ 
 
-    if(can_take_call){
-    std::cout<<answer << priority->name<< std::endl;
-    time_of_call = priority->duration; 
+    if(can_take_call && prev != priority ){//&& priority!=nullptr){ //               chage
+      std::cout<<answer << priority->name<< std::endl;
+      time_of_call = priority->duration; 
+      prev = priority;
+     //std::cout<<"prev =" << prev->name <<": " << priority->name << std::endl;
     }
-    else
-      calls.InsertFront(priority);
+    else if(prev != priority){
+       calls.InsertFront(priority);
+    }
+  
 
     while (!call_not_made.IsEmpty())
     {
@@ -95,7 +110,7 @@ void sim(){
      //std::cout<<time_of_call<< " time left on call" <<std::endl;
     tick_num++;
     time_of_call--;
-    if(time_of_call!=0){
+    if(time_of_call>0){
       can_take_call=false;
       }
     else
@@ -104,6 +119,9 @@ void sim(){
     }
     
   }
+
+
+
   while(time_of_call!=0)
   {
     std::cout << tick << tick_num << std::endl; 
