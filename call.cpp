@@ -67,8 +67,7 @@ void sim(){
         call_not_made.InsertBack(c);
       }
     }
-
- 
+    if(!call_made.IsEmpty())
     priority = call_made.RemoveFront();// select caller 
     while(!call_made.IsEmpty()){
       user = call_made.RemoveFront();
