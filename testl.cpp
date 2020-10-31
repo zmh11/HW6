@@ -43,7 +43,7 @@ cout<<endl;
 while ( !test.IsEmpty() ) {
     Record *a =test.RemoveBack();
     cout << a->uniqname <<" "<<a<< endl;
-    //delete a;
+    delete a;
   }
  
 

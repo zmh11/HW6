@@ -49,7 +49,7 @@ void sim(){
     }
     
     while(!call_made.IsEmpty()){    //select what call to answere
-      
+      return;
     }
   }
   /*

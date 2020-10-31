@@ -192,16 +192,33 @@ void Dlist<T> :: RemoveAll(){
 template<typename T>
 void Dlist<T>::CopyAll(const Dlist& l ){ 
   RemoveAll();
+
+
+  //////////////new try
+  if(l.first ==  nullptr)
+    first = last = nullptr;
+  else
+  {
+    node* temp= l.first;
+    while (temp != nullptr){
+      InsertBack(temp->o);
+      temp = temp->next;
+    }
+
+  }
+
+  /*
+
   node* temp = new node;
   temp =l.first;                        ////// make new node in while loop duhhh 
   //node* temp = l.first;
   while (temp){
     //T value = temp->o;    if alex thing dont work 
     InsertBack(temp->o); // thing->o this this too this is right alex said
-    temp = temp->next;
-    
-  }
+    temp = temp->next;}
+*/
 }
+
 
 template<typename T>
 Dlist<T>::Dlist(const Dlist &l){
