@@ -34,8 +34,10 @@ void sim(){
       c->caller_compare = 3;   
     else if (c->status =="silver") 
       c->caller_compare = 2;   
-    else if (c->status =="none") 
+    else if (c->status =="none"){ 
       c->caller_compare = 1;   
+      c->status = "regular";
+      }
 
     calls.InsertBack(c);
   }
@@ -57,7 +59,7 @@ void sim(){
     while (!calls.IsEmpty()) { // plase calls in 2 lists of calls made or not made yet
       caller *c = calls.RemoveFront();
       if(c->time_stamp == tick_num){
-        std::cout << call_from << c->name <<" a " <<c->status <<" member" <<std::endl<<std::endl;
+        std::cout << call_from << c->name <<" a " <<c->status <<" member" <<std::endl;
         call_made.InsertBack(c);
       }else if (c->time_stamp < tick_num){
         call_made.InsertFront(c);
@@ -79,14 +81,11 @@ void sim(){
     }
 
     if(can_take_call){
-    std::cout<<answer << priority->name<< std::endl<<std::endl;
+    std::cout<<answer << priority->name<< std::endl;
     time_of_call = priority->duration; 
     }
     else
       calls.InsertFront(priority);
-    
-
-
 
     while (!call_not_made.IsEmpty())
     {
@@ -99,7 +98,6 @@ void sim(){
     time_of_call--;
     if(time_of_call!=0){
       can_take_call=false;
-      //time_of_call--;
       }
     else
     {
