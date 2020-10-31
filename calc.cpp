@@ -80,7 +80,10 @@ void calc (){
       for(int k = 0; k <size; k++){
         o1 = calc.RemoveFront();
         temp[k] = o1;
-        std::cout << o1 << " ";
+        if(k == size-1)
+          std::cout << o1;
+        else
+          std::cout << o1 << " ";
       }
       std::cout << std::endl;
       for(int k = 0; k <size; k++){ // place values back 
