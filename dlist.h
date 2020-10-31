@@ -197,7 +197,7 @@ void Dlist<T> :: RemoveAll(){
 
 template<typename T>
 void Dlist<T>::CopyAll(const Dlist& l ){ 
-  RemoveAll();
+ // RemoveAll();
 
 
   //////////////new try
@@ -237,7 +237,8 @@ Dlist<T>::Dlist(const Dlist &l){
 template<typename T>
 Dlist<T>& Dlist<T>::operator=(const Dlist &l){
   if(this != &l) // was != not working 
-    CopyAll(l);
+    {RemoveAll();
+      CopyAll(l);}
     //return *this;
   //CopyAll(l);
   return *this;
