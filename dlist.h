@@ -136,6 +136,9 @@ T Dlist<T> :: RemoveFront(){
   // 1 value 
   if(first == nullptr)
     last = nullptr;
+  else
+    first->prev = nullptr;
+  
   //delete temp;
   delete temp;
   return val;
@@ -158,6 +161,9 @@ T Dlist<T> :: RemoveBack(){
     //1 value
     if (last == nullptr)
       first = nullptr;
+    else
+      last->next = nullptr;
+    
     
     delete temp;
     return val;
