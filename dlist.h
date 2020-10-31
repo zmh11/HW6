@@ -89,7 +89,7 @@ void Dlist<T> :: InsertFront(const T& o){
   insert->prev = nullptr;
   insert -> next = nullptr;
 
-  if(IsEmpty()){
+  if(first==nullptr){
     first = insert;
     last = insert;
   }
@@ -107,7 +107,7 @@ void Dlist<T> :: InsertBack( const T& o){
   insert->next = nullptr;
   insert->prev = nullptr;
 
-  if(IsEmpty()){
+  if(last==nullptr){
   first = insert;
   last = insert;
   }
