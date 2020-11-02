@@ -13,7 +13,20 @@ struct caller {
   int duration;
   int caller_compare;
 };
-
+/*
+  list calls
+  cin >> numCalls
+  for numCalls
+    insert caller to calls
+  while calls not empty 
+    start tick
+    if call time = tick
+      call from
+    answere call from higest member status first
+    or who called first if same status
+    wait duration of call before answere next call
+    tick ++
+*/
 void sim(){
   Dlist<caller*> calls;
   int number_of_calls;
@@ -41,7 +54,7 @@ void sim(){
 
     calls.InsertBack(c);
   }
-  
+
   Dlist<caller*> call_made; 
   Dlist<caller*> call_not_made; 
   int tick_num = 0;

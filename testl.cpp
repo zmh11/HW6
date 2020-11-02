@@ -47,7 +47,7 @@ while ( !test.IsEmpty() ) {
   }
  
 
-cout <<test.IsEmpty() <<" cats" <<catsweb.IsEmpty()<<endl;  // copy is fucking up fix it !!!!! its not a deep copy!!!!!
+cout <<test.IsEmpty() <<" cats" <<catsweb.IsEmpty()<<endl; 
   Record* w = new Record;
   w->name = "Andrew DeOrio";
   w->uniqname = "lol";
