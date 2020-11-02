@@ -77,11 +77,24 @@ class Dlist {
  *ADD  Member function implementations here
  ***************************************/
 
+/*
+ * return first == nullptr 
+*/
 template<typename T>
 bool Dlist<T> :: IsEmpty() const{
   return (first == nullptr);
 }
 
+/*
+  node insert = o;
+
+  if first == null ptr
+    frist and last = insert
+  else
+    insert ->next = first
+    first->pervious = insert 
+    first = insert
+*/
 template<typename T>
 void Dlist<T> :: InsertFront(const T& o){
   node* insert = new node;
@@ -99,7 +112,16 @@ void Dlist<T> :: InsertFront(const T& o){
     first = insert;
   }
 }
+/*
+  node insert = o;
 
+  if first == null ptr
+    frist and last = insert
+  else
+    insert ->next = last
+    last->pervious = insert 
+    last = insert
+*/
 template<typename T>
 void Dlist<T> :: InsertBack( const T& o){
   node* insert = new node;
@@ -117,34 +139,57 @@ void Dlist<T> :: InsertBack( const T& o){
     last = insert;
   }
 }
+/*
+  if empty 
+    throw empty list
+  else
+  node* temp = first;
+  T val = temp -> o ;
+  first = temp->next; 
+  if first == nullptr
+    last = nullptr;
+  else
+    first->prev = nullptr;
+
+  delete temp;
+  return val;
+*/
 
 template<typename T>
 T Dlist<T> :: RemoveFront(){
 
   if( IsEmpty() ){
-    //std::cerr <<"List is empty \n";
-    //assert(false);
-    //Dlist* e = new Dlist;
     emptyList e;
     throw e;
   }
   else{
   node* temp = first;
- // temp = first;
   T val = temp -> o ;
-  first = temp->next; //first = first-> next; // try first = temp->next
-  // 1 value 
+  first = temp->next; 
   if(first == nullptr)
     last = nullptr;
   else
     first->prev = nullptr;
-  
-  //delete temp;
+
   delete temp;
   return val;
   }
 }
-
+/*
+  if empty 
+    return empty list
+  else
+    node* temp = new node;
+    temp = last;
+    T val = temp->o;
+    last = temp->prev; 
+    if (last == nullptr)
+      first = nullptr;
+    else
+      last->next = nullptr;
+    delete temp;
+    return val;
+*/
 template<typename T>
 T Dlist<T> :: RemoveBack(){
  
@@ -153,97 +198,98 @@ T Dlist<T> :: RemoveBack(){
     throw e;
   }
   else{
- 
     node* temp = new node;
     temp = last;
     T val = temp->o;
-    last = temp->prev;  // last = last->prev;
-    //1 value
+    last = temp->prev; 
     if (last == nullptr)
       first = nullptr;
     else
       last->next = nullptr;
-    
-    
     delete temp;
     return val;
   }
 }
 
+/*
+  first and last = nullptr
+*/
 template<typename T>
 void Dlist<T> :: MakeEmpty(){
   first = nullptr;
   last = nullptr;
 }
 
+/*
+   MakeEmpty();
+*/
 template<typename T>
 Dlist<T> :: Dlist(){
    MakeEmpty();
 }
 
+/*
+  while not empty
+    node thing = first
+    first = thing ->next
+    deleat thing
+  makeempty()
+*/
 template<typename T>
 void Dlist<T> :: RemoveAll(){
-  // T temp; // try node ptr 
   while( !IsEmpty() ){
-    node* thing = first; // try thins
-    first = thing->next; // try thins
-    delete thing; // try thins
-   //RemoveFront();
-   // temp = RemoveFront(); /// not the try this
+    node* thing = first;
+    first = thing->next; 
+    delete thing; 
   }
   MakeEmpty();
 
 }
 
+/*
+  tmep =  l.first
+  while temp != nullptr
+    insertback (temp->o)
+    temp=temp->next
+*/
 template<typename T>
 void Dlist<T>::CopyAll(const Dlist& l ){ 
- // RemoveAll();
-
-
-  //////////////new try
-  //if(l.first ==  nullptr)
-    //first = last = nullptr;
-  //else
-  //{
     node* temp= l.first;
     while (temp != nullptr){
       InsertBack(temp->o);
       temp = temp->next;
     }
 
-  //}
-
-  /*
-
-  node* temp = new node;
-  temp =l.first;                        ////// make new node in while loop duhhh 
-  //node* temp = l.first;
-  while (temp){
-    //T value = temp->o;    if alex thing dont work 
-    InsertBack(temp->o); // thing->o this this too this is right alex said
-    temp = temp->next;}
-*/
 }
 
-
+/*
+  makeempty
+  copyall(l)
+*/
 template<typename T>
 Dlist<T>::Dlist(const Dlist &l){
   MakeEmpty();
   CopyAll(l);
-  //this = l;
 }
 
-
+/*
+    if this != &l
+    RemoveAll();
+    CopyAll(l);
+  return *this;
+*/
 template<typename T>
 Dlist<T>& Dlist<T>::operator=(const Dlist &l){
-  if(this != &l) // was != not working 
-    {RemoveAll();
-      CopyAll(l);}
-    //return *this;
-  //CopyAll(l);
+  if(this != &l) {
+    RemoveAll();
+    CopyAll(l);
+    }
   return *this;
 }
 
+/*
+  removeall
+*/
 template<typename T>
 Dlist<T> :: ~Dlist(){
     RemoveAll();
