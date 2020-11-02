@@ -41,10 +41,9 @@ void sim(){
 
     calls.InsertBack(c);
   }
-
-  //std::cout<<number_of_calls;
-  Dlist<caller*> call_made; //if the time of call has been made
-  Dlist<caller*> call_not_made; // if call has not been plased yet
+  
+  Dlist<caller*> call_made; 
+  Dlist<caller*> call_not_made; 
   int tick_num = 0;
   caller* user;
   caller* priority;
@@ -55,11 +54,10 @@ void sim(){
   bool can_take_call=true;
   int time_of_call;
 
-
- while (!calls.IsEmpty()){
+  while (!calls.IsEmpty()){
     std::cout << tick << tick_num << std::endl;
 
-    while (!calls.IsEmpty()) { // plase calls in 2 lists of calls made or not made yet
+    while (!calls.IsEmpty()) {
       caller *c = calls.RemoveFront();
       if(c->time_stamp == tick_num){
         std::cout << call_from << c->name <<" a " <<c->status <<" member" <<std::endl;
@@ -71,11 +69,11 @@ void sim(){
       }
     }
     
-    if(!call_made.IsEmpty())  // selecting caller
+    if(!call_made.IsEmpty()) 
       priority = call_made.RemoveFront();
   
     
-    while(!call_made.IsEmpty()){  // still select caller 
+    while(!call_made.IsEmpty()){
       user = call_made.RemoveFront();
       if(priority->caller_compare < user->caller_compare){
         temp = priority;
@@ -84,9 +82,7 @@ void sim(){
       }
       calls.InsertFront(user);
     }
- 
-
-    if(can_take_call && prev != priority ){//&& priority!=nullptr){ //               chage
+    if(can_take_call && prev != priority ){
       std::cout<<answer << priority->name<< std::endl;
       time_of_call = priority->duration; 
       prev = priority;
@@ -94,41 +90,27 @@ void sim(){
     else if(prev != priority){
        calls.InsertFront(priority);
     }
-  
-
-    while (!call_not_made.IsEmpty())
-    {
+    while (!call_not_made.IsEmpty()){
       caller *c=call_not_made.RemoveFront();
       calls.InsertBack(c);
     }
-
     tick_num++;
     time_of_call--;
     if(time_of_call>0){
       can_take_call=false;
       }
-    else
-    {
+    else{
       can_take_call = true;
     }
-    
   }
-
-
-
-  while(time_of_call!=0)
-  {
+  while(time_of_call!=0){
     std::cout << tick << tick_num << std::endl; 
     time_of_call--;
     tick_num++;
   }
-
-std::cout << tick << tick_num << std::endl;  
-
-
+  std::cout << tick << tick_num << std::endl;  
 }
 
 int main(){
 sim();
-
 }

@@ -3,6 +3,10 @@
 #include <string>
 #include <cstdlib>
 
+/*
+  if s is a number return true
+  else return false  
+*/
 bool IsNumber(const std::string& s){
     try
     {
@@ -15,6 +19,43 @@ bool IsNumber(const std::string& s){
     return true;
 }
 
+/*
+  cin input
+    while imput not q
+    if input is number 
+      calc insert (input)
+    else if input = +
+      num = insert. remove + insert.remove
+      calc insert num
+    else if input = -
+      num = insert. remove - insert.remove
+      calc insert num
+    else if input = *
+      num = insert. remove * insert.remove
+      calc insert num
+    else if input = /
+      num = insert. remove / insert.remove
+      calc insert num
+    else if input = n
+      num = insert. remove 
+      calc insert -num
+    else if input = d
+      num = insert. remove 
+      calc insert num,  num
+    else if input = r
+      num = insert. remove 
+      num2 =* insert.remove
+      calc insert num2 num
+    else if input = a
+      while calc not empty 
+        print calc.remove
+    else if input = p
+      print insert.remove 
+      call insert
+    else if input = c
+      while calc not empty 
+        calc.remove
+*/
 void calc (){
   Dlist<double> calc;
   std::string input = "";
@@ -23,7 +64,6 @@ void calc (){
   double o2; // operand 2
   while( input.compare("q") ){
     std::cin >> input;
-    
     if( IsNumber(input) ){
       calc.InsertFront( std::stod(input) );
       size++;
@@ -97,7 +137,6 @@ void calc (){
       std::cout << "Bad input\n"; 
     }
   }
-
 }
 int main(){
   calc();
